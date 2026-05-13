@@ -18,7 +18,7 @@ plt.figure(figsize=(10, 6))
 df.boxplot(column=['MedInc'])
 plt.title('Distribution of Median Income in California')
 
-# This is the line that handles the magic
+# Save figure in "figs" folder
 plt.savefig('../figs/california_boxplot.png')
 
 plt.show()
