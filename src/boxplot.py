@@ -3,50 +3,23 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_california_housing
 
-# --- PART 1: DATA PREPARATION ---
-
-# Load California Housing dataset
+# 1. Load Data
 housing = fetch_california_housing(as_frame=True)
-
-# Combine features and target into a single DataFrame
 df = housing.frame
 
-# Quick check of the data
-print("Data Head:")
-print(df.head())
-print(f"\nDataFrame Shape: {df.shape}")
+# 2. Setup Folder Path 
+# Since this script is inside 'src', we go UP one level then into 'figs'
+output_dir = os.path.join(os.path.dirname(__file__), '..', 'figs')
 
-# --- PART 2: DIRECTORY MANAGEMENT ---
-
-# Define the directory name
-output_dir = 'figs'
-
-# Check if the directory exists; if not, create it.
-# This prevents FileNotFoundError when calling savefig.
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
-    print(f"Directory '{output_dir}' created.")
-else:
-    print(f"Directory '{output_dir}' already exists.")
 
-# --- PART 3: PLOTTING ---
-
+# 3. Create Plot
 plt.figure(figsize=(10, 6))
-
-# Create the boxplot for Median Income
 df.boxplot(column=['MedInc'])
-
 plt.title('Distribution of Median Income in California')
-plt.ylabel('Income (in tens of thousands of $)')
 
-# --- PART 4: SAVING AND SHOWING ---
-
-# Use a relative path to save into the project folder
-file_path = os.path.join(output_dir, 'california_boxplot.png')
-
-# Save the figure
-plt.savefig(file_path)
-print(f"Figure saved successfully to: {file_path}")
-
-# Display the plot
-plt.show()
+# 4. Save to the specific path required by the rubric
+save_path = os.path.join(output_dir, 'boxplot.png')
+plt.savefig(save_path)
+print(f"Success! Figure saved to {save_path}")
