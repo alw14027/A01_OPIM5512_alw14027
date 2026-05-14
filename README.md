@@ -18,3 +18,5 @@ How to run the script:
 10. Once code has run input code you will like to run (ex. python src/boxplot.py)
 
 Expected output (a saved boxplot image)
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/d3cfe528-7972-48bb-8924-604440696c92" />
+
